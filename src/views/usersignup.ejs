@@ -6,13 +6,13 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/stylelog.css">
+        <link rel="stylesheet" href="css/stylereg.css">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="/css/styles.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -24,13 +24,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">User LogIn</a>
+      <a href="/" class="navbar-brand">LogIn</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <!-- <%for(i=0;i<adminnav.length;i++){%>
+        <!-- <%for(i=0;i<usernav.length;i++){%>
         <li>
-          <a href="<%=adminnav[i].link%>"><%=adminnav[i].name%></a>
+          <a href="<%=usernav[i].link%>"><%=usernav[i].name%></a>
         </li>
         <%}%> -->
       </ul>
@@ -91,25 +91,31 @@
           
           
           <!--/stories-->
+          <div class="row">
+            <div class="col">
           
           <div class="container1">
             <div class="header1">
-                <h2>Admin LogIn</h2>
+                <h2>Create Account</h2>
             </div>
-            <form action="/admin/books" class="form1" id="form1" >
+            <form action="/signup/add" method="POST" class="form1" id="form1">
                 <div class="form-control1 ">
                     <label for="username">Username</label>
-                    <input type="text" placeholder="username" id="username">
+                    <input type="text" placeholder="username" id="username" name="username">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <!-- <small id="s1">Error Message</small> -->
-                    <p id="s1"></p>
+                    <small>Error Message</small>
                 </div>
-               
-                
+                <div class="form-control1 ">
+                    <label for="username">Email</label>
+                    <input type="email" placeholder="Email Id" id="email" name="email">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
                 <div class="form-control1">
                     <label for="">Password</label>
-                    <input class="pwd" type="password" placeholder="password" id="password">
+                    <input class="pwd" type="password" placeholder="password" id="password1" name="password">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <div class="indicator">
@@ -118,18 +124,34 @@
                         <span class="strong"></span>
                     </div><br>
                     <p class="psdmsg"></p>
-                    <!-- <small id="s2">Error Message</small> -->
-                    <p id="s2"></p>
+                    <small>Error Message</small>
                     
                 </div>
-                
-                <button type="submit" >LogIn</button><br>
-                
+                <div class="form-control1">
+                    <label for="username">Confirm Password</label>
+                    <input type="password" placeholder="confirm Password" id="password2">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control1">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" placeholder="Phone Number" id="phone" name="phone">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <!-- <small class="pwdsts"></small> -->
+                    <small>Error Message</small>
+                </div>
+                <button type="submit">submit</button>
             </form>
           
           </div> 
           </div>
           </div>
+          
+          
+          
+          
           
           
           <!--/stories-->
@@ -188,7 +210,7 @@
   </div>
 </footer>
 	<!-- script references -->
-        <script src="js/loginscript.js"></script>
+        <script src="js/form.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

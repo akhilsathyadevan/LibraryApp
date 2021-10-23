@@ -7,12 +7,11 @@
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/stylelog.css">
+		<link href="/netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="/css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet"> 
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -24,15 +23,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">User LogIn</a>
+      <a href="/" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <!-- <%for(i=0;i<adminnav.length;i++){%>
+        <%for(i=0;i<adminnav.length;i++){%>
         <li>
           <a href="<%=adminnav[i].link%>"><%=adminnav[i].name%></a>
         </li>
-        <%}%> -->
+        <%}%>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -52,7 +51,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Library App
+        <h1>Edit Books
           <p class="lead"></p>
         </h1>
       </div>
@@ -91,51 +90,59 @@
           
           
           <!--/stories-->
-          
-          <div class="container1">
-            <div class="header1">
-                <h2>Admin LogIn</h2>
-            </div>
-            <form action="/admin/books" class="form1" id="form1" >
-                <div class="form-control1 ">
-                    <label for="username">Username</label>
-                    <input type="text" placeholder="username" id="username">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <!-- <small id="s1">Error Message</small> -->
-                    <p id="s1"></p>
-                </div>
-               
-                
-                <div class="form-control1">
-                    <label for="">Password</label>
-                    <input class="pwd" type="password" placeholder="password" id="password">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <div class="indicator">
-                        <span class="weak"></span>
-                        <span class="medium"></span>
-                        <span class="strong"></span>
-                    </div><br>
-                    <p class="psdmsg"></p>
-                    <!-- <small id="s2">Error Message</small> -->
-                    <p id="s2"></p>
-                    
-                </div>
-                
-                <button type="submit" >LogIn</button><br>
-                
-            </form>
-          
-          </div> 
+          <!-- form -->
+<div class="container-fluid bg">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-6 col-md-3">
+  
+        <form class="form-container" action="/admin/books/updatebook/add/<%=book._id%>" method="POST" enctype="multipart/form-data">
+          <div class="header">
+          <h2 class=>Enter Book Details</h2>
           </div>
+          <div class="mb-3" id="user1">
+            <label  class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="name" value="<%=book.title%>"  required>
+            <label for="error1" id="error1"></label>
+            
           </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" name="author" class="form-control" id="author" value="<%=book.author%>" required>
+            <label for="error2" id="error2"></label>
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" id="image" value="/images/<%=book.image%>" required>
+            <label for="error2" id="error3"></label>
+          </div>
+          <div class="mb-3">
+            <label for="gener" class="form-label">Genre</label>
+            <input type="text" name="genre" class="form-control" id="genre" value="<%=book.genre%>" required>
+            <label for="error2" id="error2"></label>
+          </div>
+
+        
+          <button type="submit" class="btn btn-primary btn">ADD</button>
+          
+        </form>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  
+    <!--form end  -->
+
           
           
           <!--/stories-->
           
           
-          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
         
           
         </div>
@@ -188,7 +195,6 @@
   </div>
 </footer>
 	<!-- script references -->
-        <script src="js/loginscript.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

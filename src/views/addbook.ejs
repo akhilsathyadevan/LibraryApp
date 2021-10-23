@@ -6,12 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet"> 
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -23,13 +23,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="/" class="navbar-brand"></a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length;i++){%>
+        <%for(i=0;i<adminnav.length;i++){%>
         <li>
-          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+          <a href="<%=adminnav[i].link%>"><%=adminnav[i].name%></a>
         </li>
         <%}%>
       </ul>
@@ -95,29 +95,29 @@
     <div class="row justify-content-center">
       <div class="col-12 col-sm-6 col-md-3">
   
-        <form class="form-container" action="" >
+        <form class="form-container" action="/admin/addbook/add" method="POST" enctype="multipart/form-data">
           <div class="header">
           <h2 class=>Enter Book Details</h2>
           </div>
           <div class="mb-3" id="user1">
-            <label for="exampleInputEmail1" class="form-label">Name</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            <label  class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="name"  required>
             <label for="error1" id="error1"></label>
             
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Author</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" required>
+            <label for="author" class="form-label">Author</label>
+            <input type="text" name="author" class="form-control" id="author" required>
             <label for="error2" id="error2"></label>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Image</label>
-            <input type="file" class="form-control" id="exampleInputPassword1" required>
+            <label for="image" class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" id="image" required>
             <label for="error2" id="error3"></label>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Gener</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" required>
+            <label for="gener" class="form-label">Genre</label>
+            <input type="text" name="genre" class="form-control" id="genre" required>
             <label for="error2" id="error2"></label>
           </div>
 

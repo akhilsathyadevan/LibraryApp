@@ -8,7 +8,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/stylelog.css">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -24,15 +23,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">User LogIn</a>
+      <a href="/" class="navbar-brand"></a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <!-- <%for(i=0;i<adminnav.length;i++){%>
+        <%for(i=0;i<usernav.length;i++){%>
         <li>
-          <a href="<%=adminnav[i].link%>"><%=adminnav[i].name%></a>
+          <a href="<%=usernav[i].link%>"><%=usernav[i].name%></a>
         </li>
-        <%}%> -->
+        <%}%>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -52,7 +51,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Library App
+        <h1>Authors
           <p class="lead"></p>
         </h1>
       </div>
@@ -91,51 +90,32 @@
           
           
           <!--/stories-->
-          
-          <div class="container1">
-            <div class="header1">
-                <h2>Admin LogIn</h2>
+          <%for(i=0;i<author.length;i++){%>
+          <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-title" href="#"><img alt="" src="/images/<%=author[i].image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
-            <form action="/admin/books" class="form1" id="form1" >
-                <div class="form-control1 ">
-                    <label for="username">Username</label>
-                    <input type="text" placeholder="username" id="username">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <!-- <small id="s1">Error Message</small> -->
-                    <p id="s1"></p>
-                </div>
-               
-                
-                <div class="form-control1">
-                    <label for="">Password</label>
-                    <input class="pwd" type="password" placeholder="password" id="password">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <div class="indicator">
-                        <span class="weak"></span>
-                        <span class="medium"></span>
-                        <span class="strong"></span>
-                    </div><br>
-                    <p class="psdmsg"></p>
-                    <!-- <small id="s2">Error Message</small> -->
-                    <p id="s2"></p>
-                    
-                </div>
-                
-                <button type="submit" >LogIn</button><br>
-                
-            </form>
-          
-          </div> 
+            <div class="col-md-10 col-sm-9">
+              <h3><%=author[i].name%></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default"><%=author[i].writings%></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"> <a href="/authors/<%=author[i]._id%>" class="text-muted">Read More</a></small>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br><br>
+            </div>
           </div>
-          </div>
+          <%}%>
+          <hr>
           
           
           <!--/stories-->
           
           
-          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
         
           
         </div>
@@ -188,7 +168,6 @@
   </div>
 </footer>
 	<!-- script references -->
-        <script src="js/loginscript.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

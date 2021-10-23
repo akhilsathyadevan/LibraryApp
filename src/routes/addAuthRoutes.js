@@ -9,6 +9,9 @@ function addAuthor(nav){
         title:'Libraryapp' 
     });
     });
+    addAuthRouter.get('/add',function(req,res){
+        res.send('book added successfully');
+    });
     
     return addAuthRouter;
 }

@@ -24,13 +24,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">User LogIn</a>
+      <a href="/admin/login" class="navbar-brand">Admin LogIn</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <!-- <%for(i=0;i<adminnav.length;i++){%>
+        <!-- <%for(i=0;i<usernav.length;i++){%>
         <li>
-          <a href="<%=adminnav[i].link%>"><%=adminnav[i].name%></a>
+          <a href="<%=usernav[i].link%>"><%=usernav[i].name%></a>
         </li>
         <%}%> -->
       </ul>
@@ -94,12 +94,12 @@
           
           <div class="container1">
             <div class="header1">
-                <h2>Admin LogIn</h2>
+                <h2>User LogIn</h2>
             </div>
-            <form action="/admin/books" class="form1" id="form1" >
+            <form action="" class="form1" id="form1" >
                 <div class="form-control1 ">
                     <label for="username">Username</label>
-                    <input type="text" placeholder="username" id="username">
+                    <input type="text" placeholder="username" id="username" name="username">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <!-- <small id="s1">Error Message</small> -->
@@ -109,7 +109,7 @@
                 
                 <div class="form-control1">
                     <label for="">Password</label>
-                    <input class="pwd" type="password" placeholder="password" id="password">
+                    <input class="pwd" type="password" placeholder="password" id="password" name="password">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <div class="indicator">
@@ -122,10 +122,12 @@
                     <p id="s2"></p>
                     
                 </div>
+                <a href="/signup"><h5 style="color: blue;">if you are a new user click here for SignUp</h3></a><br><br>
                 
                 <button type="submit" >LogIn</button><br>
                 
             </form>
+            
           
           </div> 
           </div>
@@ -188,8 +190,36 @@
   </div>
 </footer>
 	<!-- script references -->
-        <script src="js/loginscript.js"></script>
+        <!-- <script src="js/loginscript.js"></script> -->
+        
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+      $('#form1').submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+          url:'/login',
+          method:'POST',
+          data:{
+            username:$('#username').val(),
+            password:$('#password').val()
+          },
+          success:(response)=>{
+            console.log(response);
+            if(response.failed){
+              alert("wrong credentials!! log in failed");
+              location.reload();
+            }else{
+              alert("login success")
+              window.location.href="/"
+ 
+            }
+          },
+          error:(response)=>{
+            alert("somthing happend wrong");
+          }
+        })
+      })
+    </script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

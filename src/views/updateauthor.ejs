@@ -7,8 +7,7 @@
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/stylelog.css">
+		<link href="/netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -24,15 +23,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">User LogIn</a>
+      <a href="/" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <!-- <%for(i=0;i<adminnav.length;i++){%>
+        <%for(i=0;i<adminnav.length;i++){%>
         <li>
           <a href="<%=adminnav[i].link%>"><%=adminnav[i].name%></a>
         </li>
-        <%}%> -->
+        <%}%>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -52,7 +51,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Library App
+        <h1>Add Authors
           <p class="lead"></p>
         </h1>
       </div>
@@ -91,51 +90,49 @@
           
           
           <!--/stories-->
+          <!-- form -->
+<div class="container-fluid bg">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-6 col-md-3">
+  
+        <form class="form-container" method="POST" action="/admin/authors/updateauthor/add/<%=author._id%>"  enctype="multipart/form-data">
+          <div class="header">
+          <h2 class=>Enter Author Details</h2>
+          <!-- </div>
+          <div class="mb-3" id="user1"> -->
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%=author.name%>" required>
+          <!-- </div>
+          <div class="mb-3"> -->
+            <label for="writings" class="form-label">writings</label>
+            <input type="text" class="form-control" id="writings" name="writings" value="<%=author.writings%>" required>
+          <!-- </div>
+          <div class="mb-3"> -->
+            <label for="exampleInputPassword1" class="form-label" >Image</label>
+            <input type="file" class="form-control" id="exampleInputPassword1" name="image" value="/images/<%=author.image%>" required>
+          <!-- </div> -->
           
-          <div class="container1">
-            <div class="header1">
-                <h2>Admin LogIn</h2>
-            </div>
-            <form action="/admin/books" class="form1" id="form1" >
-                <div class="form-control1 ">
-                    <label for="username">Username</label>
-                    <input type="text" placeholder="username" id="username">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <!-- <small id="s1">Error Message</small> -->
-                    <p id="s1"></p>
-                </div>
-               
-                
-                <div class="form-control1">
-                    <label for="">Password</label>
-                    <input class="pwd" type="password" placeholder="password" id="password">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <div class="indicator">
-                        <span class="weak"></span>
-                        <span class="medium"></span>
-                        <span class="strong"></span>
-                    </div><br>
-                    <p class="psdmsg"></p>
-                    <!-- <small id="s2">Error Message</small> -->
-                    <p id="s2"></p>
-                    
-                </div>
-                
-                <button type="submit" >LogIn</button><br>
-                
-            </form>
+          <button type="submit" class="btn btn-primary btn">ADD</button>
           
-          </div> 
-          </div>
-          </div>
+        </form>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  
+    <!--form end  -->
+
           
           
           <!--/stories-->
           
           
-          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
         
           
         </div>
@@ -188,7 +185,6 @@
   </div>
 </footer>
 	<!-- script references -->
-        <script src="js/loginscript.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

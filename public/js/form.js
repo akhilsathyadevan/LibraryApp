@@ -1,3 +1,4 @@
+console.log("hai");
 const form=document.getElementById("form1");
 const username=document.getElementById("username");
 const email=document.getElementById("email");
@@ -12,18 +13,25 @@ const indicator=document.querySelector(".indicator");
 let regExpWeek=/[a-z]/;
 let regExpMedium=/\d+/;
 let regExpStrong=/[A-Z]/;
-
+var flag=0;
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
     checkInputs();
+    if(flag==50){
+        form.submit();
+
+    }
+    
 });
 function checkInputs(){
+
     
     const usernameValue=username.value.trim();
     const emailValue= email.value.trim();
     const password1Value= password1.value.trim();
     const password2Value= password2.value.trim();
     const phoneValue=phone.value.trim();
+    
     if(usernameValue===""){
         setErrorFor(username,'username cannot be blank');
     }
@@ -31,6 +39,7 @@ function checkInputs(){
         setErrorFor(username,'username is too short');
     }
     else{
+        flag=flag+10;
         setSuccessFor(username);
     }
     if(emailValue===""){
@@ -40,6 +49,7 @@ function checkInputs(){
         setErrorFor(email,'email format error');
     }
     else{
+        flag=flag+10;
         setSuccessFor(email);
     }
    
@@ -49,15 +59,11 @@ function checkInputs(){
         setErrorFor(phone,'number format error');
     }
     else{
+        flag=flag+10;
         setSuccessFor(phone);
     }
     
-    // if(password1Value===""){
-    //     setErrorFor(password1,'password cannot be blank');
-    // }
-    // else if(password1Value.length<8){
-    //     setErrorFor(password1,'password is too short');
-    // }
+    
     if (password1Value===""){
         setErrorFor(password1,'password cannot be empty');
     }
@@ -84,7 +90,9 @@ function checkInputs(){
             weak.classList.add("active");
             medium.classList.add("active");
             strong.classList.add("active");
+            flag=flag+10;
             setSuccessFor(password1);
+            
             setErrorForps(password1,'Strong Password');
         }
     }
@@ -95,49 +103,12 @@ function checkInputs(){
         setErrorFor(password2,'password miss match');
     }
     else{
+        flag=flag+10;
         setSuccessFor(password2);
     }
- 
-    // if(password1Value.match(/[a-z]/)){
-    //     setErrorFor(password1,'weak password');
-        
-    // }
-    // if(password1Value.match(/[A-Z][a-z]/)){
-    //     setErrorFor(password1,'medium password');
-    // }
-    // if(password1Value.match(/[0-9][a-z][A-z]/)){
-    //     setSuccessFor(password1);
-    // }
-
-
-    // if(password1Value===""){
-    //     setErrorFor(password1,'password cannot be blank');
-    // }else if(password1Value.length<8){
-    //     setErrorFor(password1,'password is too short');
-    // }
-    // else{
-    //     setSuccessFor(password1);
-    // }
-    
-    // if(password1Value===""||password2Value===""){
-    //     setErrorFor(password1,'password cannot be blank');
-
-    // }
-    // else if(password1Value===password2Value){
-    //     setSuccessFor(password1);
-    //     setSuccessFor(password2);
-    // }
-    // else{
-    //     setErrorFor(password2,'password does not match');
-    // }
-    // if(password2Value===""){
-    //     setErrorFor(password2,'password cannot be blank');
-    // }
-    // else {
-    //     setSuccessFor(password2);
-    // }
-    
+ return flag;  
 }
+
 function setErrorFor(input,message){
     const formControl=input.parentElement;
     const small=formControl.querySelector("small");
@@ -150,15 +121,8 @@ function setSuccessFor(input){
     formControl.className='form-control1 success';
 
 }
-// function validateEmail(emailValue){
-//     // var regExpMail=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,3}+)(\.[a-zA-Z]{2,3})?$/;
-//     var regexp=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//     var exmail=emailValue.match(regexp);
-//     if(exmail){
-//         return true;
-//     }
-//     return false;
-// }
+
+
 
 function ValidateEmail(emailValue) 
 {
